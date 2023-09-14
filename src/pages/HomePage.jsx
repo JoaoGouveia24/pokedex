@@ -1,16 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
-import NavBar from '../components/navbar/NavBar'
+import NavBar from '../components/NavBar'
 import Poke from '../components/Pokemon/Poke'
 import { Container, Grid } from '@mui/material'
-import Pagination from '../components/Pagination'
+import PaginationControlled from '../components/PaginationControlled'
 
 
 
 export const HomePage = () => {
-
-    
-    
   
     const [pokemon, setPokemon] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -25,7 +22,7 @@ export const HomePage = () => {
     const getPokemon = () => {
 
         var endPoints =[]
-        for (var i = 0; i < 264; i++) {
+        for (var i = 0; i < 1002; i++) {
             endPoints.push(`https://pokeapi.co/api/v2/pokemon/${i + 1}`)
         }
         var response = axios.all(endPoints.map((endPoint) => axios.get(endPoint))).then((res) => setPokemon(res))
@@ -62,7 +59,7 @@ export const HomePage = () => {
                 ))}
             </Grid>
 
-            <Pagination 
+            <PaginationControlled 
                     totalPosts={pokemon.length} 
                     postsPerPage={postsPerPage}
                     setcurrentPage={setCurrentPage}

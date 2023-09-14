@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { BorderBottom, BorderColor, BorderColorRounded } from '@mui/icons-material';
 
 export default function Poke({name , image, types}) {
 
@@ -15,7 +16,7 @@ export default function Poke({name , image, types}) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345}}>
       <CardActionArea>
         <CardMedia
           component="img"
